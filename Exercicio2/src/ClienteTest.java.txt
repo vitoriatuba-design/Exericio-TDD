@@ -1,0 +1,17 @@
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+class ClienteTest {
+
+    @Test
+    void deveCriarClienteComNome() {
+        Cliente cliente = new Cliente(
+                "Joao",
+                "123.456.789-09",
+                LocalDate.of(2000, 5, 10)
+        );
+
+        assertEquals("Joao", cliente.getNome());
+    }
+}
