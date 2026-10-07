@@ -79,4 +79,9 @@ class IntervaloTest {
 
         assertEquals(intervalo1, intervalo2);
     }
-}
+    @Test
+    void deveRetornarIntervaloNoFormatoHHMMSS() {
+        Intervalo intervalo = new Intervalo(2, 40, 10);
+
+        assertEquals("02:40:10", intervalo.toString());
+    }}
