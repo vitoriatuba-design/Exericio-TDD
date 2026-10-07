@@ -72,4 +72,11 @@ class IntervaloTest {
                 () -> intervalo1.subtrair(intervalo2)
         );
     }
+    @Test
+    void deveVerificarSeDoisIntervalosSaoIguais() {
+        Intervalo intervalo1 = new Intervalo(1, 30, 20);
+        Intervalo intervalo2 = new Intervalo(1, 30, 20);
+
+        assertEquals(intervalo1, intervalo2);
+    }
 }
