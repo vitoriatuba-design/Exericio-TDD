@@ -52,4 +52,13 @@ class IntervaloTest {
 
         assertEquals(25, resultado.getTotalSegundos());
     }
+    @Test
+void deveSubtrairDoisIntervalos() {
+    Intervalo intervalo1 = new Intervalo(0, 0, 25);
+    Intervalo intervalo2 = new Intervalo(0, 0, 10);
+
+    Intervalo resultado = intervalo1.subtrair(intervalo2);
+
+    assertEquals(15, resultado.getTotalSegundos());
+}
 }
