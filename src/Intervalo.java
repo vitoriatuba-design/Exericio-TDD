@@ -22,6 +22,9 @@ public class Intervalo {
         return segundos;
     }
     public int getTotalMinutos() {
-    return horas * 60 + minutos;
-}
+        return horas * 60 + minutos;
+    }
+    public int getTotalSegundos() {
+        return horas * 60 * 60 + minutos * 60 + segundos;
+    }
 }
