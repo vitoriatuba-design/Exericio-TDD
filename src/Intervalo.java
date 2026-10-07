@@ -36,5 +36,9 @@ public class Intervalo {
     private Intervalo(int totalSegundos) {
         this.totalSegundos = totalSegundos;
     }
-
+    public Intervalo subtrair(Intervalo outro) {
+    return new Intervalo(
+            this.totalSegundos - outro.totalSegundos
+    );
+}
 }
