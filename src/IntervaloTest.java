@@ -23,5 +23,10 @@ class IntervaloTest {
 
       assertEquals(10, intervalo.getSegundos());
 }
+   @Test
+   void deveRetornarTotalDeMinutos() {
+       Intervalo intervalo = new Intervalo(2, 40, 10);
 
+       assertEquals(160, intervalo.getTotalMinutos());
+}
 }
