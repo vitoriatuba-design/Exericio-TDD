@@ -1,30 +1,31 @@
 public class Intervalo {
 
-    private int horas;
-    private int minutos;
-    private int segundos;
+    private int totalSegundos;
 
     public Intervalo(int horas, int minutos, int segundos) {
-        this.horas = horas;
-        this.minutos = minutos;
-        this.segundos = segundos;
+        this.totalSegundos =
+                horas * 60 * 60 +
+                minutos * 60 +
+                segundos;
     }
 
     public int getHoras() {
-        return horas;
+        return totalSegundos / 3600;
     }
 
     public int getMinutos() {
-        return minutos;
+        return (totalSegundos % 3600) / 60;
     }
 
     public int getSegundos() {
-        return segundos;
+        return totalSegundos % 60;
     }
+
     public int getTotalMinutos() {
-        return horas * 60 + minutos;
+        return totalSegundos / 60;
     }
+
     public int getTotalSegundos() {
-        return horas * 60 * 60 + minutos * 60 + segundos;
+        return totalSegundos;
     }
 }
