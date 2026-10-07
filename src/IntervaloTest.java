@@ -43,4 +43,13 @@ class IntervaloTest {
         assertEquals(11, intervalo.getMinutos());
         assertEquals(20, intervalo.getSegundos());
     }
+    @Test
+    void deveSomarDoisIntervalos() {
+        Intervalo intervalo1 = new Intervalo(0, 0, 10);
+        Intervalo intervalo2 = new Intervalo(0, 0, 15);
+
+        Intervalo resultado = intervalo1.somar(intervalo2);
+
+        assertEquals(25, resultado.getTotalSegundos());
+    }
 }
