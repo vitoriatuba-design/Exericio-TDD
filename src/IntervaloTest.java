@@ -35,4 +35,12 @@ class IntervaloTest {
 
         assertEquals(9610, intervalo.getTotalSegundos());
     }
+    @Test
+    void deveAceitarMinutosESegundosAcimaDe59() {
+        Intervalo intervalo = new Intervalo(1, 70, 80);
+
+        assertEquals(2, intervalo.getHoras());
+        assertEquals(11, intervalo.getMinutos());
+        assertEquals(20, intervalo.getSegundos());
+    }
 }
