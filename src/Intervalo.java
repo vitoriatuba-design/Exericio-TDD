@@ -5,8 +5,8 @@ public class Intervalo {
     public Intervalo(int horas, int minutos, int segundos) {
         this.totalSegundos =
                 horas * 60 * 60 +
-                minutos * 60 +
-                segundos;
+                        minutos * 60 +
+                        segundos;
     }
 
     public int getHoras() {
@@ -29,7 +29,12 @@ public class Intervalo {
         return totalSegundos;
     }
     public Intervalo somar(Intervalo outro) {
-        return new Intervalo(0, 0,
-                this.totalSegundos + outro.totalSegundos);
+        return new Intervalo(
+                this.totalSegundos + outro.totalSegundos
+        );
     }
+    private Intervalo(int totalSegundos) {
+        this.totalSegundos = totalSegundos;
+    }
+
 }
