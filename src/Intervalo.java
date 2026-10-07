@@ -54,5 +54,23 @@ public class Intervalo {
             super(mensagem);
         }
     }
+    @Override
+    public boolean equals(Object objeto) {
 
+        if (this == objeto) {
+            return true;
+        }
+
+        if (!(objeto instanceof Intervalo)) {
+            return false;
+        }
+
+        Intervalo outro = (Intervalo) objeto;
+
+        return this.totalSegundos == outro.totalSegundos;
+    }
+@Override
+public int hashCode() {
+    return Integer.hashCode(totalSegundos);
+}
 }
