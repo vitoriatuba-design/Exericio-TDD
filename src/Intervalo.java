@@ -9,4 +9,8 @@ public class Intervalo {
     public int getHoras() {
         return horas;
     }
+
+    public int getMinutos() {
+    return 40;
+    }
 }
