@@ -17,4 +17,5 @@ class IntervaloTest {
 
        assertEquals(40, intervalo.getMinutos());
 }
+
 }
