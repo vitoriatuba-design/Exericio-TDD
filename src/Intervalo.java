@@ -2,10 +2,12 @@ public class Intervalo {
 
     private int horas;
     private int minutos;
+    private int segundos;
 
     public Intervalo(int horas, int minutos, int segundos) {
         this.horas = horas;
         this.minutos = minutos;
+        this.segundos = segundos;
     }
 
     public int getHoras() {
@@ -14,5 +16,9 @@ public class Intervalo {
 
     public int getMinutos() {
         return minutos;
+    }
+
+    public int getSegundos() {
+        return segundos;
     }
 }
