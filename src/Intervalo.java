@@ -73,4 +73,13 @@ public class Intervalo {
 public int hashCode() {
     return Integer.hashCode(totalSegundos);
 }
+@Override
+public String toString() {
+    return String.format(
+            "%02d:%02d:%02d",
+            getHoras(),
+            getMinutos(),
+            getSegundos()
+    );
+}
 }
