@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -53,12 +54,22 @@ class IntervaloTest {
         assertEquals(25, resultado.getTotalSegundos());
     }
     @Test
-void deveSubtrairDoisIntervalos() {
-    Intervalo intervalo1 = new Intervalo(0, 0, 25);
-    Intervalo intervalo2 = new Intervalo(0, 0, 10);
+    void deveSubtrairDoisIntervalos() {
+        Intervalo intervalo1 = new Intervalo(0, 0, 25);
+        Intervalo intervalo2 = new Intervalo(0, 0, 10);
 
-    Intervalo resultado = intervalo1.subtrair(intervalo2);
+        Intervalo resultado = intervalo1.subtrair(intervalo2);
 
-    assertEquals(15, resultado.getTotalSegundos());
-}
+        assertEquals(15, resultado.getTotalSegundos());
+    }
+    @Test
+    void naoDevePermitirResultadoNegativo() {
+        Intervalo intervalo1 = new Intervalo(0, 0, 10);
+        Intervalo intervalo2 = new Intervalo(0, 0, 15);
+
+        Assertions.assertThrows(
+                Intervalo.IntervaloException.class,
+                () -> intervalo1.subtrair(intervalo2)
+        );
+    }
 }
