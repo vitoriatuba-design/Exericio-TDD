@@ -28,4 +28,8 @@ public class Intervalo {
     public int getTotalSegundos() {
         return totalSegundos;
     }
+    public Intervalo somar(Intervalo outro) {
+        return new Intervalo(0, 0,
+                this.totalSegundos + outro.totalSegundos);
+    }
 }
