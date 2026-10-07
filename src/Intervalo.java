@@ -37,8 +37,22 @@ public class Intervalo {
         this.totalSegundos = totalSegundos;
     }
     public Intervalo subtrair(Intervalo outro) {
-    return new Intervalo(
-            this.totalSegundos - outro.totalSegundos
-    );
-}
+
+        if (outro.totalSegundos > this.totalSegundos) {
+            throw new IntervaloException(
+                    "O intervalo não pode ser negativo."
+            );
+        }
+
+        return new Intervalo(
+                this.totalSegundos - outro.totalSegundos
+        );
+    }
+    public class IntervaloException extends RuntimeException {
+
+        public IntervaloException(String mensagem) {
+            super(mensagem);
+        }
+    }
+
 }
