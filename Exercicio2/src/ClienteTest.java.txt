@@ -1,59 +1,90 @@
-import org.junit.Assert;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ClienteTest {
 
     @Test
-    void deveCriarClienteComNome() {
-        Cliente cliente = new Cliente(
-                "Joao",
-                "123.456.789-09",
-                LocalDate.of(2000, 5, 10)
-        );
+    void deveCriarClienteComNomeCpfEDataNascimento() {
 
-        Assert.assertEquals("Joao", cliente.getNome());
-    }
-    @Test
-    void deveCriarClienteComCpf() {
-        Cliente cliente = new Cliente(
-                "Joao",
-                "123.456.789-09",
-                LocalDate.of(2000, 5, 10)
-        );
-
-        assertEquals(
-                "123.456.789-09",
-                cliente.getCpf()
-        );
-    }
-
-    @Test
-    void deveCriarClienteComDataNascimento() {
-        LocalDate data = LocalDate.of(2000, 5, 10);
+        LocalDate dataNascimento = LocalDate.of(2000, 5, 10);
 
         Cliente cliente = new Cliente(
                 "Joao",
-                "123.456.789-09",
-                data
+                "529.982.247-25",
+                dataNascimento
         );
 
-        Assert.assertEquals(data, cliente.getDataNascimento());
+        assertEquals("Joao", cliente.getNome());
+        assertEquals("529.982.247-25", cliente.getCpf());
+        assertEquals(dataNascimento, cliente.getDataNascimento());
     }
+
     @Test
     void deveRejeitarCpfComFormatoInvalido() {
-        Assertions.assertThrows(
+
+        assertThrows(
                 ClienteException.class,
                 () -> new Cliente(
                         "Joao",
-                        "12345678909",
+                        "52998224725",
                         LocalDate.of(2000, 5, 10)
                 )
         );
     }
 
+    @Test
+    void deveRejeitarNomeComCaracteresNaoAlfabeticos() {
+
+        assertThrows(
+                ClienteException.class,
+                () -> new Cliente(
+                        "Joao123",
+                        "529.982.247-25",
+                        LocalDate.of(2000, 5, 10)
+                )
+        );
+    }
+
+    @Test
+    void deveRejeitarCpfInvalido() {
+
+        assertThrows(
+                ClienteException.class,
+                () -> new Cliente(
+                        "Joao",
+                        "111.111.111-11",
+                        LocalDate.of(2000, 5, 10)
+                )
+        );
+    }
+
+    @Test
+    void deveRejeitarDataAnteriorOuIgualA1900() {
+
+        assertThrows(
+                ClienteException.class,
+                () -> new Cliente(
+                        "Joao",
+                        "529.982.247-25",
+                        LocalDate.of(1900, 1, 1)
+                )
+        );
+    }
+
+    @Test
+    void deveRejeitarDataFutura() {
+
+        assertThrows(
+                ClienteException.class,
+                () -> new Cliente(
+                        "Joao",
+                        "529.982.247-25",
+                        LocalDate.now().plusDays(1)
+                )
+        );
+    }
 }
