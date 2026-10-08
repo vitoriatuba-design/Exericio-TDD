@@ -1,4 +1,7 @@
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -12,6 +15,19 @@ class ClienteTest {
                 LocalDate.of(2000, 5, 10)
         );
 
-        assertEquals("Joao", cliente.getNome());
+        Assert.assertEquals("Joao", cliente.getNome());
+    }
+    @Test
+    void deveCriarClienteComCpf() {
+        Cliente cliente = new Cliente(
+                "Joao",
+                "123.456.789-09",
+                LocalDate.of(2000, 5, 10)
+        );
+
+        assertEquals(
+                "123.456.789-09",
+                cliente.getCpf()
+        );
     }
 }
