@@ -30,4 +30,17 @@ class ClienteTest {
                 cliente.getCpf()
         );
     }
+ @Test
+    void deveCriarClienteComDataNascimento() {
+        LocalDate data = LocalDate.of(2000, 5, 10);
+
+        Cliente cliente = new Cliente(
+                "Joao",
+                "123.456.789-09",
+                data
+        );
+
+        Assert.assertEquals(data, cliente.getDataNascimento());
+    }
+
 }
