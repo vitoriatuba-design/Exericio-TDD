@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -30,7 +31,8 @@ class ClienteTest {
                 cliente.getCpf()
         );
     }
- @Test
+
+    @Test
     void deveCriarClienteComDataNascimento() {
         LocalDate data = LocalDate.of(2000, 5, 10);
 
@@ -41,6 +43,17 @@ class ClienteTest {
         );
 
         Assert.assertEquals(data, cliente.getDataNascimento());
+    }
+    @Test
+    void deveRejeitarCpfComFormatoInvalido() {
+        Assertions.assertThrows(
+                ClienteException.class,
+                () -> new Cliente(
+                        "Joao",
+                        "12345678909",
+                        LocalDate.of(2000, 5, 10)
+                )
+        );
     }
 
 }
