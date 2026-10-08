@@ -21,4 +21,8 @@ public class Cliente {
     public String getCpf() {
         return cpf;
     }
+
+    public LocalDate getDataNascimento() {
+        return dataNascimento;
+    }
 }
